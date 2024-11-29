@@ -1,14 +1,13 @@
+# Stage 1: Build
 FROM maven:3.8.7 AS build
 WORKDIR /app
-COPY .. .
+COPY . .
 RUN mvn -B clean package -Dmaven.test.skip=true
 RUN ls -lh /app/target
 
+# Stage 2: Runtime
 FROM openjdk:17-slim
-RUN apt-get update && apt-get install -y curl && apt-get clean && rm -rf /var/lib/apt/lists/*
-
+WORKDIR /app
 COPY --from=build /app/target/*.jar /app/e-rental.jar
-
 EXPOSE 8087
-
 ENTRYPOINT ["java", "-jar", "/app/e-rental.jar"]
