@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 public class ERentalApplication {
-	@PostMapping("word")
+	@PostMapping("helloWorld")
 	public String sayHello(){
-		return "Hello World";
+		return "Hello World world";
 
 	}
 
