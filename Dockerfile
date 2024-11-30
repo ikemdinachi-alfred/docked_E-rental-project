@@ -1,3 +1,4 @@
+
 # Stage 1: Build
 FROM maven:3.8.7 AS build
 WORKDIR /app
@@ -9,5 +10,5 @@ RUN ls -lh /app/target
 FROM openjdk:17-slim
 WORKDIR /app
 COPY --from=build /app/target/*.jar /app/e-rental.jar
-EXPOSE 8087
+EXPOSE 9090  # Update the exposed port to 9090
 ENTRYPOINT ["java", "-jar", "/app/e-rental.jar"]
