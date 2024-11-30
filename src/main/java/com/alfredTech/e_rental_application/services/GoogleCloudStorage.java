@@ -1,5 +1,6 @@
 package com.alfredTech.e_rental_application.services;
 import com.google.cloud.storage.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -9,6 +10,8 @@ import java.util.logging.Logger;
 
 @Service
 public class GoogleCloudStorage {
+    @Autowired
+    private GCPBucketConfig bucketConfig;
 
     private static final Logger logger = Logger.getLogger(GoogleCloudStorage.class.getName());
     private final Storage storage = StorageOptions.getDefaultInstance().getService();
@@ -21,7 +24,7 @@ public class GoogleCloudStorage {
 
         try {
             byte[] bytes = photo.getBytes();
-            String BUCKET_NAME = "${BUCKETNAME}";
+            String BUCKET_NAME = bucketConfig.getBucketName();
             BlobId blobId = BlobId.of(BUCKET_NAME, fileName);
             BlobInfo blobInfo = BlobInfo.newBuilder(blobId)
                     .setContentType(photo.getContentType())

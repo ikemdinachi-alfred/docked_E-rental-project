@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: e_rental_application
+  config:
+    import: classpath:secrets.yml
+  datasource:
+    url: jdbc:mysql://localhost:3306/e_rental_db
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 9090

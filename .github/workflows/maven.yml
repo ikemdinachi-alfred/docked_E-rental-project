@@ -27,7 +27,7 @@ jobs:
       - name: Build & push Docker image
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
-          image: ike20743/e-rental
+          image: bioalfred/e-rental-project
           tags: latest
           registry: docker.io
           dockerfile: Dockerfile
