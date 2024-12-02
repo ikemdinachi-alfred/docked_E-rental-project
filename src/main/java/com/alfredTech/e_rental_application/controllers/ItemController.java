@@ -38,7 +38,7 @@ public class ItemController {
         Response response = itemService.addNewItem(photo,name, itemType, itemPrice, itemDescription);
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
-    @GetMapping("/all-available-items")
+    @GetMapping("/all-available-item")
     public ResponseEntity<Response> getAvailableItems() {
         Response response = itemService.getAllAvailableItems();
         return ResponseEntity.status(response.getStatusCode()).body(response);
