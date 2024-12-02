@@ -29,6 +29,6 @@ server:
   port: 9090
 
 
-#        dialect: org.hibernate.dialect.PostgreSQLDialect
+#    dialect: org.hibernate.dialect.PostgreSQLDialect
 #      URL: jdbc:postgresql://dpg-ct5d6dl2ng1s738mtm3g-a.oregon-postgres.render.com:5432/e_rental_db_wb9a
 
